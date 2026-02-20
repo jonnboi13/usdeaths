@@ -2,55 +2,23 @@
 % Please edit documentation in R/scrape_all_sections.r
 \name{scrape_all_sections}
 \alias{scrape_all_sections}
-\title{Scrape all CDC Vital Statistics sections}
+\title{Scrape All CDC Vital Statistics Sections}
 \usage{
-scrape_all_sections(url, url_pdf = NULL)
+scrape_all_sections(url)
 }
 \arguments{
-\item{url}{Character string with the CDC Vital Stats page URL.
-Typically \url{https://www.cdc.gov/nchs/data_access/VitalStatsOnline.htm}.}
-
-\item{url_pdf}{Optional character string with the CDC Mortality documentation
-page URL. If provided, the placeholder mortality user guide link is replaced
-with the full set of scraped links from that page.
-Typically \url{https://www.cdc.gov/nchs/nvss/mortality_public_use_data.htm}.}
+\item{url}{URL to the CDC Vital Statistics Online page. Defaults to the
+current CDC page.}
 }
 \value{
-A tibble with columns:
-\describe{
-\item{section}{Section name}
-\item{subsection}{Subsection name}
-\item{link_text}{Text of the download link}
-\item{year}{Four-digit year as integer}
-\item{file_size}{Raw file size string}
-\item{url}{Absolute URL to the file}
-\item{file_type}{File extension}
-\item{file_size_mb}{File size converted to megabytes}
-}
+A named list of seven tibbles, one per section, each containing
+columns: \code{section}, \code{subsection}, \code{link_text}, \code{year},
+\code{file_size}, \code{url}, \code{file_type}, and \code{file_size_mb}.
 }
 \description{
-Downloads and combines all the main CDC Vital Statistics sections
-into a single tibble. Optionally scrapes the separate Mortality Multiple
-Cause-of-Death documentation page and merges it in.
+Scrapes all seven CDC vital statistics data sections from the Vital Statistics
+Online page and returns them as a named list of tibbles in long format.
 }
-\details{
-When \code{url_pdf} is provided, the single placeholder link for the
-mortality multiple cause-of-death user guide is removed and replaced with
-the full set of file links scraped from the mortality documentation page.
-
-A known typo in the CDC source data causes one file size to appear as
-\code{"10.2.MB"} instead of \code{"10.2 MB"}. This is corrected automatically.
-}
-\examples{
-\dontrun{
-# Basic usage
-data <- scrape_all_sections("https://www.cdc.gov/nchs/data_access/VitalStatsOnline.htm")
-
-# With full mortality documentation
-data <- scrape_all_sections(
-    url     = "https://www.cdc.gov/nchs/data_access/VitalStatsOnline.htm",
-    url_pdf = "https://www.cdc.gov/nchs/nvss/mortality_public_use_data.htm"
-)
-}
-
+\seealso{
+\code{\link{clean_all_sections}}, \code{\link{build_cdc_lookup}}
 }
