@@ -1,0 +1,19 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/build_cdc_lookup.html</loc></url>
+<url><loc>/reference/build_link_lookup.html</loc></url>
+<url><loc>/reference/cdc_link_lookup.html</loc></url>
+<url><loc>/reference/clean_all_sections.html</loc></url>
+<url><loc>/reference/get_html_page.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/parse_file_size_mb.html</loc></url>
+<url><loc>/reference/scrape_all_sections.html</loc></url>
+<url><loc>/reference/scrape_cdc_section.html</loc></url>
+<url><loc>/reference/scrape_mortality_user_guide.html</loc></url>
+<url><loc>/reference/scrape_mortality_user_guide_specific.html</loc></url>
+</urlset>
+

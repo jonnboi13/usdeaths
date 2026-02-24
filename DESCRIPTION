@@ -2,8 +2,11 @@ Package: usdeaths
 Title: Scrape CDC Vital Statistics File Links
 Version: 0.0.0.9000
 Authors@R: 
-    person("Mitchell", "Mecham", , "mechamit000@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+  c(
+    person("Mitchell", "Mecham", , "mechamit000@gmail.com", role = c("aut")),
+    person("J. ", "Hathaway", , "hathawayj@byui.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1574-0832"))
+  )
 Description: Provides tools to scrape and parse downloadable file links from
     the CDC Vital Statistics Online data access pages, including births,
     mortality, fetal death, and related documentation.
