@@ -1,0 +1,60 @@
+---
+title: "Getting Started with usdeaths"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with usdeaths}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+This vignette walks through the full workflow of downloading, reading, and
+decoding a CDC vital statistics mortality file using the usdeaths package.
+
+## Setup
+```{r setup, message=FALSE}
+library(usdeaths)
+library(dplyr)
+library(httr2)
+```
+
+## Get the Metadata
+```{r meta}
+meta <- data_multiple_mortality_1969
+```
+
+## Download the Data
+```{r download, eval=FALSE}
+url <- "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/mortality/mort1969us.zip"
+temp <- tempfile(fileext = ".zip")
+request(url) |>
+    req_progress() |>
+    req_perform(path = temp)
+```
+
+## Unzip
+```{r unzip, eval=FALSE}
+out_dir <- tempfile()
+dir.create(out_dir)
+if (.Platform$OS.type == "windows") {
+    zip7 <- c("C:/Program Files/7-Zip/7z.exe", "C:/Program Files (x86)/7-Zip/7z.exe")
+    zip7 <- zip7[file.exists(zip7)][1]
+    if (!is.na(zip7)) {
+        system2(zip7, args = c("e", temp, paste0("-o", out_dir), "-y"))
+    } else {
+        stop("7-Zip not found.")
+    }
+} else {
+    system2("unzip", args = c(temp, "-d", out_dir))
+}
+```
+
+## Read and Decode
+```{r read, eval=FALSE}
+data_file <- list.files(out_dir, full.names = TRUE)[1]
+mort1969 <- read_section(data_file, meta)
+unlink(out_dir, recursive = TRUE)
+
+decode_preview(mort1969, meta)
+```
