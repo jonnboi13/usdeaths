@@ -14,6 +14,7 @@ Provides tools to scrape and parse downloadable file links from the CDC Vital St
 Authors:
 \itemize{
   \item Mitchell Mecham \email{mechamit000@gmail.com}
+  \item Jonathan Oliphant \email{jonathanoliphant13@gmail.com}
 }
 
 }
