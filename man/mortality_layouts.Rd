@@ -5,6 +5,13 @@
 \alias{mortality_layouts}
 \alias{data_multiple_mortality_1969}
 \alias{data_multiple_mortality_2023}
+\alias{data_multiple_mortality_2003}
+\alias{data_multiple_mortality_2004}
+\alias{data_multiple_mortality_2005}
+\alias{data_multiple_mortality_2006}
+\alias{data_multiple_mortality_2007}
+\alias{data_multiple_mortality_2008}
+\alias{data_multiple_mortality_2009}
 \title{Mortality multiple cause data layouts}
 \format{
 A tibble with 7 variables:
@@ -21,6 +28,20 @@ A tibble with 7 variables:
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 43 rows and 7 columns.
 
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 91 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 107 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 107 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 88 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 88 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 88 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 88 rows and 7 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 88 rows and 7 columns.
 }
 \source{
 \url{https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/DVS/mortality/}
@@ -29,6 +50,20 @@ An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) w
 data_multiple_mortality_1969
 
 data_multiple_mortality_2023
+
+data_multiple_mortality_2003
+
+data_multiple_mortality_2004
+
+data_multiple_mortality_2005
+
+data_multiple_mortality_2006
+
+data_multiple_mortality_2007
+
+data_multiple_mortality_2008
+
+data_multiple_mortality_2009
 }
 \description{
 Metadata tables describing the fixed-width file layout for US mortality
@@ -42,5 +77,56 @@ This is an early year with limited coding — several fields left blank.
 This year introduced a revised race classification schema.
 
 Additional cause of death fields were added to the layout this year.
+
+Geographic identifiers are present: positions 21–60 contain state,
+county, and city of both occurrence and residence, PMSA/MSA, CMSA, and
+place of birth. This detail was removed from public-use files from 2005
+onward per NCHS data access policy.
+
+Both 1989 and 2003 education revision fields are present alongside an
+\code{education_reporting_flag} indicating which revision was used.
+
+\code{record_type} is present at position 19. \code{marital_status}
+includes code \code{N} (not on certificate). Occupation and industry fields
+are absent.
+
+Layout is structurally identical to 2003, retaining full geographic
+detail in positions 21–60 and dual education revision fields.
+
+\code{record_type} is present at position 19. \code{marital_status}
+includes code \code{N} (not on certificate). Occupation and industry fields
+are absent.
+
+Geographic identifiers were removed from the public-use file this year
+per a new NCHS data access policy. Positions 1–19 and 21–60 are reserved
+(blank). The \code{record_type} field is absent from 2005 onward.
+
+\code{marital_status} code \code{N} (not on certificate) is removed.
+Both 1989 and 2003 education revision fields are retained. Occupation and
+industry fields are absent.
+
+Layout is structurally identical to 2005. Geographic identifiers remain
+excluded per NCHS data access policy.
+
+Both education revision fields are present. Occupation and industry
+fields are absent.
+
+Layout is structurally identical to 2005–2006. Geographic identifiers
+remain excluded per NCHS data access policy.
+
+Both education revision fields are present. Occupation and industry
+fields are absent.
+
+Layout is structurally identical to 2005–2007. Geographic identifiers
+remain excluded per NCHS data access policy.
+
+Both education revision fields are present. Occupation and industry
+fields are absent.
+
+Layout is structurally identical to 2005–2008. Geographic identifiers
+remain excluded per NCHS data access policy.
+
+Both education revision fields are present. Occupation and industry
+fields are absent.
 }
 \keyword{datasets}
